@@ -1,0 +1,25 @@
+<h2>Register Lead</h2>
+
+<label for="name">Name:</label>
+<input id="name" type="text" [(ngModel)]="lead.name" />
+
+<label for="email">Email:</label>
+<input id="email" type="email" [(ngModel)]="lead.email" />
+
+<label for="mobile">Mobile:</label>
+<input id="mobile" type="tel" [(ngModel)]="lead.mobile" />
+
+<label for="postcode">Postcode:</label>
+<input id="postcode" type="text" [(ngModel)]="lead.postcode" />
+
+<label>Services:</label>
+<div *ngFor="let service of availableServices">
+  <input 
+    type="checkbox" 
+    [checked]="lead.services.includes(service)"
+    (change)="toggleService(service, $event)" 
+  />
+  {{ service }}
+</div>
+
+<button (click)="registerLead()">Register</button>

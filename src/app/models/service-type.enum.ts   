@@ -1,0 +1,5 @@
+export enum ServiceType {
+  DELIVERY = "DELIVERY",
+  PICKUP = "PICKUP",
+  PAYMENT = "PAYMENT"
+}

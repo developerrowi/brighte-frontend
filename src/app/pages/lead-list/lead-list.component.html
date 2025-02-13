@@ -1,0 +1,43 @@
+<h2>Leads List</h2>
+
+<!-- Search Input -->
+<div>
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    placeholder="Search lead by name"
+  />
+  <button (click)="searchLead()">Search</button>
+  <button (click)="fetchLeads()">Reset</button>
+</div>
+
+<table *ngIf="!loading && !error">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Postcode</th>
+      <th>Services</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lead of leads">
+      <td>{{ lead.id }}</td>
+      <td>{{ lead.name }}</td>
+      <td>{{ lead.email }}</td>
+      <td>{{ lead.mobile }}</td>
+      <td>{{ lead.postcode }}</td>
+      <td>
+        <span *ngFor="let service of lead.services; let last = last">
+          {{ service.type }}<span *ngIf="!last">, </span>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="loading">Loading data...</p>
+<p *ngIf="error">Error loading leads: {{ error.message }}</p>
+<p *ngIf="!loading && !error && leads.length === 0">No data found.</p>
