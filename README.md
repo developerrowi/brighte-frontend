@@ -2,6 +2,9 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
 
+## Requirements
+    Node v 20 or higher (exact v20.18.3)
+
 ## Install local 
  `npm i`
 
